@@ -24,7 +24,8 @@ A lightweight desktop utility built with PyQt6 to monitor system metrics in real
 
 ## 📸 Screenshots
 
-> _Add screenshots here once available_
+![System Information Displayed
+](image.png)
 
 ---
 
