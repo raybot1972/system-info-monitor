@@ -19,6 +19,7 @@ A lightweight desktop utility built with PyQt6 to monitor system metrics in real
 - ⚠️ Resource alerts for low RAM/disk
 - 📁 Logging to `sysinfo_log.csv` every 5 seconds
 - 🛠 Packaged as a standalone `.exe` with embedded version metadata
+- 🌍 Public IP detection with fallback to local IP
 
 ---
 

@@ -1,4 +1,4 @@
-import sys, os, socket, psutil, csv
+import sys, os, socket, psutil, csv, requests
 from datetime import datetime, timedelta
 from PyQt6.QtWidgets import (
     QApplication, QWidget, QLabel, QVBoxLayout, QPushButton,
@@ -10,6 +10,12 @@ from PyQt6.QtCore import QTimer, Qt
 def resource_path(relative_path):
     base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
     return os.path.join(base_path, relative_path)
+
+def get_public_ip():
+    try:
+        return requests.get("https://api.ipify.org", timeout=5).text
+    except Exception:
+        return None
 
 class SystemInfoApp(QWidget):
     def __init__(self):
@@ -87,7 +93,16 @@ class SystemInfoApp(QWidget):
 
     def update_info(self):
         pc_name = socket.gethostname()
-        ip_address = socket.gethostbyname(pc_name)
+        try:
+            ip_address = socket.gethostbyname(pc_name)
+        except Exception:
+            ip_address = "Unavailable"
+
+        public_ip = get_public_ip()
+        ip_display = f"{ip_address} (Public: {public_ip})" if public_ip else ip_address
+        self.labels["IP Address"].setText(f"IP Address: {ip_display}")
+        self.tray_icon.setToolTip(f"System Info Monitor\nPublic IP: {public_ip or 'Unavailable'}")
+
         uptime_seconds = (datetime.now() - datetime.fromtimestamp(psutil.boot_time())).total_seconds()
         uptime_str = str(timedelta(seconds=int(uptime_seconds)))
         ram_available = round(psutil.virtual_memory().available / (1024 ** 3), 2)
@@ -131,7 +146,6 @@ class SystemInfoApp(QWidget):
             self.labels["Active Interface"].setText(f"Active Interface IP: {active_ip}")
 
         self.labels["PC Name"].setText(f"PC Name: {pc_name}")
-        self.labels["IP Address"].setText(f"IP Address: {ip_address}")
         self.labels["Uptime"].setText(f"Uptime: {uptime_str}")
         self.labels["Available RAM (GB)"].setText(f"Available RAM: {ram_available} GB")
         self.labels["Disk Space Available (GB)"].setText(f"Disk Space: {disk_available} GB")

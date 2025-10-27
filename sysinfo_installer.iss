@@ -1,6 +1,6 @@
 [Setup]
 AppName=System Info Monitor
-AppVersion=1.0.0
+AppVersion=1.1.0
 DefaultDirName={pf}\System Info Monitor
 DefaultGroupName=System Info Monitor
 OutputDir=dist

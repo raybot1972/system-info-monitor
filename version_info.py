@@ -20,9 +20,9 @@ VSVersionInfo(
       StringStruct('InternalName', 'pysysinf'),
       StringStruct('OriginalFilename', 'pysysinf.exe'),
       StringStruct('ProductName', 'System Info Monitor'),
-      StringStruct('ProductVersion', '1.0.0'),
-      StringStruct('FileVersion', '1.0.0.0'),
-      StringStruct('LegalCopyright', '(c) 2025 Raymond Systems')
+      StringStruct('ProductVersion', '1.1.0'),
+      StringStruct('FileVersion', '1.1.0.0'),
+      StringStruct('LegalCopyright', '(c) 2025 Human Touch Information Systems')
     ])
   ]),
   varinfo=VarFileInfo([VarStruct('Translation', [1033, 1200])])
