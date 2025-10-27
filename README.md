@@ -34,11 +34,10 @@ A lightweight desktop utility built with PyQt6 to monitor system metrics in real
 
 ### Option 1: Portable `.exe`
 
-Download the latest release from [Releases](https://github.com/yourusername/sysinfo-monitor/releases) and run `pysysinf.exe`.
-
+[Download v1.1.0](https://github.com/raybot1972/system-info-monitor/releases/tag/v1.1.0)  and run `pysysinf.exe`.
 ### Option 2: Installer
 
-Download `SysInfoInstaller.exe` for full installation with Start Menu shortcuts and uninstall support.
+[Download v1.1.0](https://github.com/raybot1972/system-info-monitor/releases/tag/v1.1.0) `SysInfoInstaller.exe` for full installation with Start Menu shortcuts and uninstall support.
 
 ---
 
